@@ -1,0 +1,20 @@
+-> gradle have tasks
+------------------------
+1. lifecycle 
+2. properties
+3. actions
+4. dependencies
+
+
+-> building  a project phases
+-----------------------------------
+1. initialization phase -> (multiple projects will use it to build the phases)
+2. configuration phase
+3. excution phase
+
+commands
+-----------------------------------
+-> to see all tasks from build.gradle file
+    * gradle tasks --all
+-> run particular task from build.gradle file
+    * gradle TaskName

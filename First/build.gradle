@@ -1,0 +1,27 @@
+// lets cover tasks -> ways of creation
+project.task("Task1") {
+    description "This is task 1"
+}
+
+task("Task2") {
+    description "This is task 2"
+}
+
+task "Task3" {
+    description "This is task 3"
+    doLast {
+        println "doLast lifecycle method from the task3"
+    }
+}
+
+// commom and useways of right task
+task task4 {
+    // doFirst, doLast are default methods
+    description "This is Task 4"
+    doFirst {
+        println "This is task4 lifecycle doFirst Method"
+    }
+    doLast {
+        println "This is task4 lifecycle doLast Method"
+    }
+}

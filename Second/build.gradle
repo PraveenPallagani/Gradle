@@ -1,0 +1,61 @@
+
+
+// we are going to create a variable, that ca be accessed in the child build.gradle files also
+project.ext.var1 = 10
+ext.var2 = 20
+ext {
+    var3 = 30
+}
+//
+
+
+// defining a variable scoped to this build file
+def buildNo = 1.0
+
+
+task Task1  {
+    // define a variable local scoped to this task 
+    description "This is task 1"
+    def version2 = 2.0
+    doLast {
+        println "doLast from Task 1, Version - $version2"
+    }
+}
+
+task Task2  {
+    description "This is task 2"
+    doLast {
+        println "doLast from Task 2"
+    }
+}
+
+task Task3 {
+    description "This is task 3"
+    doLast {
+        println "doLast from Task 3"
+    }
+}
+
+task Task4  {
+    description "This is task 4"
+    doLast {
+        println "doLast from Task 4, buildNo - $buildNo"
+    }
+}
+
+task Task5 {
+    doLast {
+        println "var1 - $var1"
+        println "var2 - $var2"
+        println "var3 - $var3"
+    }
+}
+
+
+
+// lets define our dependencies
+Task4.dependsOn Task3
+Task3.dependsOn Task2
+Task2.dependsOn Task1
+buildEnvironment.dependsOn Task4
+

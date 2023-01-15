@@ -1,0 +1,5 @@
+In this First we see 
+1. ways of creating a task 
+2. lifecycle actions in task (doFirst,doLast)
+3. running the tasks
+4. using default properties like description

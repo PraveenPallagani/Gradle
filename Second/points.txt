@@ -1,0 +1,5 @@
+In this Second we see
+
+1. adding dependencies between tasks 
+2. writing custom properties (globally, local to task, inside ext to pass to child scripts)
+3. apply from: "build.gradle" - to pass information to between gradle files
