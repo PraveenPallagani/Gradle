@@ -12,6 +12,14 @@
 2. configuration phase
 3. excution phase
 
+-> ext - extra properties
+ext {
+    var1 = 10
+}
+variables used in ext can accessed in other/child build scripts also
+we can apply a build.gradle to another gradle file by writing - apply from: "build.gradle"
+so that we can use all the ext properties and tasks defined in the build.gradle
+
 commands
 -----------------------------------
 -> to see all tasks from build.gradle file
