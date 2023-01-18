@@ -1,0 +1,14 @@
+-> To run gradle task without printing task names and only the task outputs
+    * gradle -q taskA  (here -q means quiet)
+
+-> mustRunAfter property
+    * we can specify the order in which the task can be executed
+    * but i wont kick start the task that has to be done first, we have mention it
+    * but if there is a dependency b/w the task then tasks will excute in the order, without explicit mentioning
+    * it will fail for the circular dependency
+-> shouldRunAfter property
+    * same as mustRunAfter property
+    * one diff -> it will ignore the circular dependency
+
+-> finalizedBy property
+    * if task1.finalizedBy task2 then it make sures that task2 is running after the task1

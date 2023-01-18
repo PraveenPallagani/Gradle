@@ -1,0 +1,87 @@
+task taskA {
+    description "Task A"
+    doLast {
+        println "Task A"
+    }
+}
+
+task taskB {
+    description "Task B"
+    doLast {
+        println "Task B"
+    }
+}
+
+task taskE {
+    description "Task E"
+    doLast {
+        println "Task E"
+    }
+}
+
+task taskC {
+    description "Task C"
+    dependsOn taskE
+    doLast {
+        println "Task C"
+    }
+}
+
+task taskD {
+    description "Task D"
+    dependsOn taskE
+    doLast {
+        println "Task D"
+    }
+}
+
+
+
+taskA.dependsOn taskB
+taskA.dependsOn taskC
+taskA.dependsOn taskD
+// lets taskA also directly depends on taskE, instead of depening thorugh taskC or taskD
+taskA.dependsOn taskE
+
+
+
+// Now mustRunAfter, shouldRunAfter  -  Example
+task task1 {
+    description "Task1"
+    doLast {
+        println "This is task1"
+    }
+}
+
+task task4 {
+    description "Task4"
+    doLast {
+        println "This is task4"
+    }
+}
+
+task task2 {
+    description "Task2"
+    mustRunAfter task1
+    finalizedBy task4 // this will make sure task4 will run after task2
+    doLast {
+        println "This is task2"
+    }
+}
+
+task task3 {
+    description "Task3"
+    // mustRunAfter task3 files due to circular dependency
+    shouldRunAfter task3 // ignores the circular dependencies
+    doLast {
+        println "This is task3"
+    }
+}
+
+
+
+
+
+
+
+
