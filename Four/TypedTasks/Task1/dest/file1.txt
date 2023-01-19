@@ -1,0 +1,1 @@
+This is some text replaced during the build into the place holder

@@ -1,0 +1,4 @@
+Topic - typed tasks
+doc link : https://docs.gradle.org/current/dsl
+
+copy files from one src to dest, write some copySpec and exclude some files

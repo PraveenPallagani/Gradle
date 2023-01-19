@@ -1,0 +1,36 @@
+def commonConfig = copySpec {
+    from 'src'
+    rename {String fileName -> "gradle_"+fileName}
+    
+}
+
+task copyImages(type: Copy) {
+    description "cop only images from the src folder"
+    with commonConfig
+    into 'dest/images'
+    exclude "**/*.txt"
+    println "images files copied"
+    
+}
+
+task copyTXT(type: Copy) {
+    mustRunAfter copyImages
+    description "cop only images from the src folder"
+    with commonConfig
+    into 'dest/txt'
+    exclude '**/*.jpg'
+    println "text files copied"
+}
+
+task textReplace(type: Copy) {
+    include 'file1.txt'
+    from 'src'
+    into 'dest'
+    expand (resourceRefName:'This is some text replaced during the build into the place holder')
+}
+
+
+
+// copyTXT.mustRunAfter copyImages
+buildEnvironment.dependsOn copyTXT
+buildEnvironment.dependsOn copyImages
