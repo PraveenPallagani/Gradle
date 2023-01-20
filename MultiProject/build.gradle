@@ -1,0 +1,14 @@
+group 'org.example'
+
+allprojects {
+    apply plugin: 'java'
+    version '1.0-SNAPSHOT'
+    repositories {
+        mavenCentral()
+    }
+}
+
+dependencies {
+    implementation project(":ServiceProvider")
+    implementation project(":DataProvider")
+}

@@ -1,0 +1,4 @@
+apply plugin: 'java'
+
+// we can mention the build version for our  jar
+version = '1.0.SNAPSHOT'
